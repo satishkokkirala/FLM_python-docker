@@ -3,15 +3,197 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Flask Container Demo</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>FLM Dashboard</title>
+
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-  <main class="card">
-    <span class="status">Container is healthy</span>
-    <h1>Flask application is running!</h1>
-    <p>This browser page is served by Flask and Gunicorn inside Docker.</p>
-    <p>Container hostname: <code>{{ hostname }}</code></p>
+
+<div class="page">
+
+  <!-- Header -->
+  <header class="header">
+    <div>
+      <div class="welcome">GOOD MORNING 🌿</div>
+      <h1>Welcome to FLM</h1>
+      <p>Learn • Build • Automate • Grow</p>
+    </div>
+
+    <div class="server">
+      <span class="online-dot"></span>
+      Server Online
+      <small>{{ hostname }}</small>
+    </div>
+  </header>
+
+
+  <!-- Main Dashboard -->
+  <main class="dashboard">
+
+    <!-- Left menu -->
+    <section class="left-panel">
+
+      <div class="glass clock">
+        <div class="clock-icon">🕐</div>
+        <div>
+          <div id="time">00:00:00</div>
+          <small id="date">Loading...</small>
+        </div>
+      </div>
+
+      <div class="glass menu-card">
+        <div class="menu-icon">🐧</div>
+        <div>
+          <h3>Linux</h3>
+          <p>Servers • Shell • Commands</p>
+        </div>
+        <span>→</span>
+      </div>
+
+      <div class="glass menu-card">
+        <div class="menu-icon">☁️</div>
+        <div>
+          <h3>DevOps</h3>
+          <p>Docker • Kubernetes • CI/CD</p>
+        </div>
+        <span>→</span>
+      </div>
+
+      <div class="glass menu-card">
+        <div class="menu-icon">🚀</div>
+        <div>
+          <h3>Projects</h3>
+          <p>Build • Automate • Deploy</p>
+        </div>
+        <span>→</span>
+      </div>
+
+      <div class="glass menu-card">
+        <div class="menu-icon">📚</div>
+        <div>
+          <h3>Learning</h3>
+          <p>Grow • Improve • Achieve</p>
+        </div>
+        <span>→</span>
+      </div>
+
+    </section>
+
+
+    <!-- Earth -->
+    <section class="earth-section">
+
+      <div class="sun"></div>
+
+      <div class="earth">
+
+        <div class="land land1"></div>
+        <div class="land land2"></div>
+        <div class="land land3"></div>
+        <div class="land land4"></div>
+
+        <div class="flower f1">🌸</div>
+        <div class="flower f2">🌼</div>
+        <div class="flower f3">🌺</div>
+        <div class="flower f4">🌷</div>
+        <div class="flower f5">🌻</div>
+        <div class="flower f6">🌸</div>
+        <div class="flower f7">🌼</div>
+        <div class="flower f8">🌺</div>
+        <div class="flower f9">🌷</div>
+        <div class="flower f10">🌻</div>
+        <div class="flower f11">🌸</div>
+        <div class="flower f12">🌼</div>
+
+      </div>
+
+      <div class="earth-caption">
+        <h2>🌎 Our Beautiful Earth</h2>
+        <p>Protect • Learn • Grow • Inspire</p>
+      </div>
+
+    </section>
+
+
+    <!-- Right panel -->
+    <aside class="glass notes">
+
+      <h2>🌱 Quick Notes</h2>
+
+      <label>
+        <input type="checkbox">
+        Learn new skills
+      </label>
+
+      <label>
+        <input type="checkbox">
+        Build something great
+      </label>
+
+      <label>
+        <input type="checkbox">
+        Practice Docker
+      </label>
+
+      <label>
+        <input type="checkbox">
+        Master DevOps
+      </label>
+
+      <label>
+        <input type="checkbox">
+        Stay consistent 😊
+      </label>
+
+    </aside>
+
   </main>
+
+
+  <!-- Bottom flowers -->
+  <div class="garden">
+    🌷 🌸 🌼 🌺 🌻 🌷 🌸 🌼 🌺 🌻 🌷 🌸 🌼
+  </div>
+
+
+  <footer>
+    <span>🌿 FLM Dashboard</span>
+    <span>Docker • Flask • DevOps</span>
+  </footer>
+
+</div>
+
+
+<script>
+
+function updateClock() {
+
+  const now = new Date();
+
+  document.getElementById("time").textContent =
+    now.toLocaleTimeString();
+
+  document.getElementById("date").textContent =
+    now.toLocaleDateString(
+      undefined,
+      {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }
+    );
+}
+
+updateClock();
+
+setInterval(updateClock, 1000);
+
+</script>
+
 </body>
 </html>
+EOF
+
